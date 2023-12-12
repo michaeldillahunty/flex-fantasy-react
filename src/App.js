@@ -49,7 +49,7 @@ function App() {
         // Fetch the current user when the app initializes
         async function fetchCurrentUser() {
             try {
-                const response = await axios.get('/auth/currentUser');
+                const response = await axios.get('http://18.217.120.233/auth/currentUser');
                 if (response == null) { console.error('No user currently logged in')}
                 setUser(response.data);
                 if (response.data) {
