@@ -2,7 +2,7 @@ import axios from "axios";
 
 // Create an instance of axios with custom configuration
 const instance =  axios.create({
-  baseURL: 'http://18.217.120.233', // Replace with your API's base URL
+  baseURL: 'http://ec2-18-217-120-233.us-east-2.compute.amazonaws.com', // Replace with your API's base URL
  
   timeout: 10000, // Set a timeout for requests (in milliseconds)
   
