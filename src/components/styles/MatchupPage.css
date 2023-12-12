@@ -1,0 +1,51 @@
+/* styles/MatchupPage.css */
+
+/* Main container for the matchup page */
+.MatchupPage {
+    /* Add styling for the main container */
+    /* For example: */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Add other styles as needed */
+  }
+  
+  /* Styling for the matchup row containing team information */
+  .matchup-row {
+    /* Add styles for the matchup row */
+    /* For example: */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 20px;
+    /* Add other styles as needed */
+  }
+  
+  /* Styling for team information container */
+  .team-info {
+    /* Add styles for each team's information container */
+    /* For example: */
+    text-align: center;
+    flex: 1;
+    height: 100vh;
+    /* Add other styles as needed */
+  }
+  
+  .vs {
+    /* Add styles for the 'VS' separator */
+    /* For example: */
+    font-size: 24px;
+    margin: 0 20px;
+    /* Add other styles as needed */
+  }
+  
+  /* Styling for the team container */
+  .team-container {
+    /* Add styles for the team container */
+    /* For example: */
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    
+  }
+  

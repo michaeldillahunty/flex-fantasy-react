@@ -1,0 +1,38 @@
+/* Modal container */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent black overlay */
+    transition: opacity 0.3s ease;
+    backdrop-filter: blur(5px); /* Apply blur effect to the background */
+  }
+  
+  /* Modal content */
+  .modal-dialog {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    transition: transform 0.3s ease;
+    transform: translateY(-100%);
+  }
+  
+  /* Show modal animation */
+  .modal.show {
+    display: block;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+  }
+  
+  /* Show modal content */
+  .modal-dialog.show {
+    transform: translateY(0);
+  }
+  

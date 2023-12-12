@@ -1,0 +1,42 @@
+.nav-bar {
+  background-color: #292929;
+  color: white;
+  max-width: 100%;
+  display: flex;
+  /* overflow-x: hidden; */
+}
+  
+.nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+  
+.nav-item {
+  margin-right: 20px;
+}
+  
+.nav-item:last-child {
+  margin-right: 0;
+}
+
+/* Style the links */
+.nav-item a {
+  font-weight: bold;
+  font-size: 14px;
+  text-decoration: none;
+  color: #bbbbbb;
+  /* padding: 8px 12px; */
+  border: 1px solid transparent; /* Add transparent border */
+  transition: background-color 0.3s; /* Smooth transition for background color */
+  border-radius: 5px;
+  padding: 4px 8px;
+}
+  
+.nav-item a:hover {
+  background-color: #ff9800; 
+  color: #fff;
+  
+}

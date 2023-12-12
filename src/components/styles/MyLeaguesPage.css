@@ -1,0 +1,31 @@
+.myLeaguesPage {
+    background-color: #1A1A1A;
+}
+
+.header {
+    max-width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.link {
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Use the parent's color */
+    cursor: pointer; /* Show pointer cursor on hover */
+  }
+
+
+.add-league-button {
+    background-color: white;
+    font-weight: bold;
+    font-size: large;
+    border-style: none;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 10px;
+}
+
+
+.myLeaguesHeader {
+    font-weight: bold;
+}

@@ -1,0 +1,142 @@
+.player-card {
+  width: 100%;
+  height: auto;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+  text-align: left;
+  align-items: left;
+  margin: 0 16px;
+  display: flex;
+  /* align-items: center; */
+  color: white;
+  justify-content: space-between;
+}
+
+.headshot {
+  width: 60px;
+  height: 50px;
+  margin-right: 20px; 
+}
+
+.name {
+  font-size: 14px;
+  margin: 0;
+  font-weight: bold;
+}
+
+.player-cell-info .player-card-main-row, .right-column{
+  /* display: flex;
+  align-items: center; */
+  flex-grow: 1;
+
+}
+
+.player-cell-info .player-card-main-row .meta-position, 
+.player-cell-info .player-card-main-row .meta-team {
+  margin-left: 4px;
+  font-size: 11px;
+  color: #95A5A6;
+}
+
+.position-bg {
+  /* background-color: #fff; */
+  display: flex;
+  flex-wrap: wrap;
+  border-radius: 8px;
+  width: 42px;
+  height: 32px;
+  color: #022047;
+  overflow: hidden;
+  margin-right: 8px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+}
+
+.position {
+  margin: 0;
+}
+
+.left-column, .center-column {
+  flex: 0 0 auto;
+  align-items: flex-start;
+}
+
+.player-meta-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.center-column {
+  flex-direction: column;
+}
+
+.team {
+  font-size: 12px;
+  color: #95A5A6;
+}
+
+
+.test-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.test-column .actual-points {
+  font-size: 10px;
+  color: #ababab; 
+  font-weight: bold;
+  /* margin-right: 20px; */
+  text-align: center;
+}
+.test-column .projected-points {
+  font-size: 10px;
+  color: #ababab; 
+  font-weight: bold;
+  text-align: left;
+  margin-left: 0px;
+}
+
+.college-meta, .division-meta {
+  font-size: 11px;
+  font-weight: bold;
+  color: #707070;
+}
+
+.team-drop-player-btn {
+  margin-left: 20px;
+}
+
+.drop-player-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.drop-player-btn {
+  background-color: rgba(255,255,255,0.7);
+  border: none;
+  padding: 6px;
+  border-radius: 35px;
+  cursor: pointer;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.drop-player-btn:hover {
+  background-color: rgba(189, 189, 189, 0.7);
+}
+
+.drop-player-btn span {
+  margin: 0 2px;
+}
+
+.drop-player-btn svg {
+  width: 15px;
+  height: auto;
+  margin: 0 2px;
+  transform: translateY(-1px);
+}

@@ -1,0 +1,11 @@
+.pageHeader {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    background-color:  #292929;
+}
+
+.logo-home-link {
+    display: flex;
+    text-decoration: none;
+}
