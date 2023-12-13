@@ -49,8 +49,10 @@ function App() {
         // Fetch the current user when the app initializes
         async function fetchCurrentUser() {
             try {
-                const response = await axios.get('https://backend-mn36itr6dq-uc.a.run.app/auth/currentUser', {withCredentials: true});
+                const response = await axios.get('https://backend-mn36itr6dq-uc.a.run.app/auth/currentUser', { withCredentials: true });
                 if (response == null) { console.error('No user currently logged in')}
+                if (!response.data) { console.error("RESPONSE.DATA DOES NOT CONTAIN USER")}
+                console.log("Fetch Current User (App.js) : " + response.data);
                 setUser(response.data);
                 if (response.data) {
                     setIsLoggedIn(true);
