@@ -49,7 +49,7 @@ function App() {
         // Fetch the current user when the app initializes
         async function fetchCurrentUser() {
             try {
-                const response = await axios.get('http://ec2-18-217-120-233.us-east-2.compute.amazonaws.com/auth/currentUser');
+                const response = await axios.get('https://backend-mn36itr6dq-uc.a.run.app/auth/currentUser', {withCredentials: true});
                 if (response == null) { console.error('No user currently logged in')}
                 setUser(response.data);
                 if (response.data) {
