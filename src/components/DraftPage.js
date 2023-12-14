@@ -15,7 +15,7 @@ import { useParams } from "react-router-dom";
 
 async function fetchTeamData(teamId) {
   try {
-    const response = await axios.get(`http://localhost:8000/api/getFantasyTeamById/${teamId}`);
+    const response = await axios.get(`https://backend-mn36itr6dq-uc.a.run.app/api/getFantasyTeamById/${teamId}`);
     // console.log(JSON.stringify(response.data, null, 2))
 
     return response.data;
@@ -100,7 +100,7 @@ function DraftPage(props) {
     useEffect(() => {
         const fetchTeamsAndInitializeDraftBoard = async () => {
             try {
-               await axios.get(`http://localhost:8000/api/getTeamsInLeague/${leagueId}`)
+               await axios.get(`https://backend-mn36itr6dq-uc.a.run.app/api/getTeamsInLeague/${leagueId}`)
                     .then((response) => {
                       setTeams(response.data);
                       const initialDraftBoard = initializeDraftBoard(response.data);
@@ -217,7 +217,7 @@ function DraftPage(props) {
           "player": player.espnName
         };
 
-        axios.post(`http://localhost:8000/api/addPlayerToTeam`, body)
+        axios.post(`https://backend-mn36itr6dq-uc.a.run.app/api/addPlayerToTeam`, body)
           .then((response) => {
             console.log(response.OK);
           })

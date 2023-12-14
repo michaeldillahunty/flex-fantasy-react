@@ -12,7 +12,7 @@ import draftImg from '../images/draftboard_white.png';
 
 async function fetchTeamData(teamId) {
     try {
-      const response = await axios.get(`http://localhost:8000/api/getFantasyTeamById/${teamId}`);
+      const response = await axios.get(`https://backend-mn36itr6dq-uc.a.run.app/api/getFantasyTeamById/${teamId}`);
       // console.log(JSON.stringify(response.data, null, 2))
 
       return response.data;
@@ -34,7 +34,7 @@ export default function LeaguePage(props) {
     const [currentWeek, setCurrentWeek] = useState(0);
 
     // useEffect(() => {
-    //   axios.get(`http://localhost:8000/api/getCurrentWeek`)
+    //   axios.get(`https://backend-mn36itr6dq-uc.a.run.app/api/getCurrentWeek`)
     //     .then((response) => {
     //       setCurrentWeek(response.data);
     //       console.log('Got current week');
@@ -46,7 +46,7 @@ export default function LeaguePage(props) {
 
 
     useEffect(() => {
-        axios.get(`http://localhost:8000/api/getFantasyLeagueById/${id}`)
+        axios.get(`https://backend-mn36itr6dq-uc.a.run.app/api/getFantasyLeagueById/${id}`)
             .then((response) => {
                 setLeagueData(response.data);
                 setTeams(response.data.teams);
@@ -79,7 +79,7 @@ export default function LeaguePage(props) {
         const fetchData = async () => {
           try {
             // Fetch the current week first
-            const weekResponse = await axios.get(`http://localhost:8000/api/getCurrentWeek`);
+            const weekResponse = await axios.get(`https://backend-mn36itr6dq-uc.a.run.app/api/getCurrentWeek`);
             setCurrentWeek(weekResponse.data);
             // console.log('Got current week');
       
@@ -89,7 +89,7 @@ export default function LeaguePage(props) {
             };
       
             // console.log("schedule in body:", JSON.stringify(body, null, 2));
-            const scheduleResponse = await axios.post(`http://localhost:8000/api/getLeagueSchedule`, body);
+            const scheduleResponse = await axios.post(`https://backend-mn36itr6dq-uc.a.run.app/api/getLeagueSchedule`, body);
             setSchedule(scheduleResponse.data);
             // console.log('Got schedule');
           } catch (error) {
@@ -110,7 +110,7 @@ export default function LeaguePage(props) {
         leagueId
       }
 
-      axios.post(`http://localhost:8000/api/createInvite`, body)
+      axios.post(`https://backend-mn36itr6dq-uc.a.run.app/api/createInvite`, body)
         .then((response) => {
           // console.log(response);
           setShowSendInvites(false);

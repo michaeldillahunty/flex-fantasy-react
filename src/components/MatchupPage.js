@@ -26,7 +26,7 @@ const MatchupPage = (props) => {
    
   
   useEffect(() => {
-    axios.get(`http://localhost:8000/api/getFantasyLeagueById/${location.state.leagueID.id}`)
+    axios.get(`https://backend-mn36itr6dq-uc.a.run.app/api/getFantasyLeagueById/${location.state.leagueID.id}`)
         .then((response) => {
           
             setLeagueData(response.data);
@@ -42,7 +42,7 @@ const MatchupPage = (props) => {
       if(teams.length > 0){
       try {
         const body = { "teams": teams };
-        await axios.post(`http://localhost:8000/api/getLeagueSchedule`, body).then((resonse)=>{
+        await axios.post(`https://backend-mn36itr6dq-uc.a.run.app/api/getLeagueSchedule`, body).then((resonse)=>{
             setSchedule(resonse.data);
         });
       } catch (error) {

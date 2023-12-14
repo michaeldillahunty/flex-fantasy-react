@@ -7,13 +7,14 @@ import "./styles/InvitePage.css";
 export default function InvitesPage(props) {
     const [invites, setInvites] = useState([]);
     const [inviteDetails, setInviteDetails] = useState([]);
+    const user = props.user;
 
 
     const fetchInviteDetails = async () => {
         const details = await Promise.all(
             invites.map(async (inviteId) => {
             try {
-                const response = await axios.get(`http://localhost:8000/api/getFantasyLeagueById/${inviteId}`);
+                const response = await axios.get(`https://backend-mn36itr6dq-uc.a.run.app/api/getFantasyLeagueById/${inviteId}`);
                 return response.data; 
             } catch (error) {
                 console.error(`Error fetching league info for ${inviteId}`, error);
@@ -27,7 +28,7 @@ export default function InvitesPage(props) {
 
 
     useEffect(() => {
-        axios.get(`http://localhost:8000/api/getLeagueInvites`,  { withCredentials: true })
+        axios.get(`https://backend-mn36itr6dq-uc.a.run.app/api/getLeagueInvites`,  { withCredentials: true })
             .then((response) => {
                 setInvites(response.data);
             })
@@ -54,7 +55,7 @@ export default function InvitesPage(props) {
     
     const fetchInvites = async () => {
         try {
-          const response = await axios.get(`http://localhost:8000/api/getLeagueInvites`, { withCredentials: true }); // Include withCredentials
+          const response = await axios.get(`https://backend-mn36itr6dq-uc.a.run.app/api/getLeagueInvites`, { withCredentials: true }); // Include withCredentials
           setInvites(response.data);
         } catch (error) {
           console.error('Error fetching invites:', error);
@@ -63,7 +64,7 @@ export default function InvitesPage(props) {
 
 
     const acceptInvite = async (inviteId) => {
-        axios.post(`http://localhost:8000/api/acceptInvite/${inviteId}`, null, { withCredentials: true })
+        axios.post(`https://backend-mn36itr6dq-uc.a.run.app/api/acceptInvite/${inviteId}`, null, { withCredentials: true })
             .then((response) => {
                 console.log(response);
                 setInvites(prevInvites => prevInvites.filter(id => id !== inviteId));
@@ -73,7 +74,7 @@ export default function InvitesPage(props) {
     
 
     const declineInvite = (inviteId) => {
-        axios.post(`http://localhost:8000/api/declineInvite/${inviteId}`, null, { withCredentials: true })
+        axios.post(`https://backend-mn36itr6dq-uc.a.run.app/api/declineInvite/${inviteId}`, null, { withCredentials: true })
             .then((response) => {
                 setInvites(response.data);
                 setInviteDetails(prevDetails => prevDetails.filter(detail => detail._id !== inviteId));
@@ -88,6 +89,8 @@ export default function InvitesPage(props) {
     return (
         <div className="InvitesPage">
             <NavBar isLoggedIn = {props.isLoggedIn}/>
+            <h1>User = {user.name}</h1>
+            <h1>User id = {user.id}</h1>
             <h1 className="invite-header"> Invites: </h1>
             <ul>
                 {inviteDetails.map((details, index) => (

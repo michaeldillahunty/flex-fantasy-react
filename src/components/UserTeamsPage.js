@@ -9,7 +9,7 @@ import TeamCard from "./TeamCard";
 
 async function fetchTeamData(teamId) {
     try {
-      const response = await axios.get(`http://localhost:8000/api/getFantasyTeamById/${teamId}`);
+      const response = await axios.get(`https://backend-mn36itr6dq-uc.a.run.app/api/getFantasyTeamById/${teamId}`);
       return response.data;
     } catch (error) {
       console.error(`Error fetching data for team ${teamId}: ${error}`);
@@ -26,7 +26,7 @@ export default function UserTeamsPage(props) {
 
 
     useEffect(() => {
-        axios.get('http://localhost:8000/api/getAllTeamsForUser',  { withCredentials: true })
+        axios.get('https://backend-mn36itr6dq-uc.a.run.app/api/getAllTeamsForUser',  { withCredentials: true })
             .then((response) => {
                 setTeams(response.data);
             })

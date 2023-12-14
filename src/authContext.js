@@ -12,7 +12,7 @@ export const AuthProvider = ({ children }) => {
     // Fetch the current user when the app initializes
     async function fetchCurrentUser() {
       // try {
-      //   const response = await axios.get('https://backend-mn36itr6dq-uc.a.run.app/auth/currentUser');
+      //   const response = await axios.get('https://backend-mn36itr6dq-uc.a.run.appauth/currentUser');
       //   console.log("Response: " + JSON.stringify(response, null, 2));
       //   if (response.data) {
       //     setUser(response.data);

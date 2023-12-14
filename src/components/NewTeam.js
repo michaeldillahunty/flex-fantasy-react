@@ -11,7 +11,7 @@ const NewTeam = () => { // Remove props here
 
 
   const test = () => {
-    axios.get('http://localhost:8000/api/getAllTeamsForUser',  { withCredentials: true })
+    axios.get('https://backend-mn36itr6dq-uc.a.run.app/api/getAllTeamsForUser',  { withCredentials: true })
         .then((response) => {
             console.log(JSON.stringify(response.data, null, 2));
         })

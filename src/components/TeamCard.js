@@ -8,7 +8,7 @@ export default function TeamCard({teamName, teamId, teamOwner}) {
     const [ownerName, setOwnerName] = useState('');
     
     useEffect(() => {
-        axios.get(`http://localhost:8000/api/getTeamProjectedPoints/${teamId}`)
+        axios.get(`https://backend-mn36itr6dq-uc.a.run.app/api/getTeamProjectedPoints/${teamId}`)
             .then((response) => {
                 setProjectedPoints(response.data);
             })
@@ -19,7 +19,7 @@ export default function TeamCard({teamName, teamId, teamOwner}) {
 
 
     useEffect(() => {
-        axios.get(`http://localhost:8000/api/getTeamOwnerName/${teamOwner}`)
+        axios.get(`https://backend-mn36itr6dq-uc.a.run.app/api/getTeamOwnerName/${teamOwner}`)
             .then((response) => {
                 setOwnerName(response.data);
             })

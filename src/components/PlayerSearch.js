@@ -55,7 +55,7 @@ const handleSelectPlayer = (player) => {
       "player": player.espnName
     };
 
-    axios.post(`http://localhost:8000/api/addPlayerToTeam`, body)
+    axios.post(`https://backend-mn36itr6dq-uc.a.run.app/api/addPlayerToTeam`, body)
       .then((response) => {
         console.log(response.OK);
       })

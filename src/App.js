@@ -49,7 +49,7 @@ function App() {
         // // Fetch the current user when the app initializes
         // async function fetchCurrentUser() {
         //     try {
-        //         const response = await axios.get('https://backend-mn36itr6dq-uc.a.run.app/auth/currentUser');
+        //         const response = await axios.get('https://backend-mn36itr6dq-uc.a.run.appauth/currentUser');
         //         // if (response == null) { 
         //         //     console.error('No user currently logged in')
         //         // }
@@ -72,7 +72,7 @@ function App() {
                     setUser(response.data);
                     setIsLoggedIn(true);
                 } else {
-                    setIsLoggedIn(false);
+                    //setIsLoggedIn(false);
                 }
             } catch (error) {
                 console.error("Error fetching current user:", error);
@@ -128,7 +128,7 @@ function App() {
                         <Route path="/newTeam" element={<NewTeam isLoggedIn={isLoggedIn} />} />
                         <Route path='/draft/:id' element={<DraftPage/>}/>
                         <Route path='/userTeams' element={<UserTeamsPage isLoggedIn={isLoggedIn}/>}/>
-                        <Route path='/invites' element={<InvitesPage isLoggedIn={isLoggedIn}/>}/>
+                        <Route path='/invites' element={<InvitesPage user={user} isLoggedIn={isLoggedIn}/>}/>
                         
                         <Route path='/sendInvites' element={<SendInvitesPage isLoggedIn={isLoggedIn} />} />
                     </Routes>

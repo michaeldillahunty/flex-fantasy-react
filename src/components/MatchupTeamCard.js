@@ -23,7 +23,7 @@ const MatchupTeamCard = (props) => {
   var name = "My Team";
   useEffect(() => {
     if(id){
-    axios.get(`http://localhost:8000/api/getFantasyTeamById/${id}`).then((response) => {
+    axios.get(`https://backend-mn36itr6dq-uc.a.run.app/api/getFantasyTeamById/${id}`).then((response) => {
       console.log(response.data.players);
       setTeamPlayers([...response.data.players]);
       setTeamName([response.data.teamName]);
@@ -33,7 +33,7 @@ const MatchupTeamCard = (props) => {
   }, [id]);
   useEffect(()=> {
     if(id){
-    axios.get(`http://localhost:8000/api/getTeamProjectedPoints/${id}`)
+    axios.get(`https://backend-mn36itr6dq-uc.a.run.app/api/getTeamProjectedPoints/${id}`)
     .then((response) => {
       setTeamProjectedPoints(response.data);
     })

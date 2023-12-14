@@ -18,7 +18,7 @@ const MyLeaguesPage = (props) => {
     const params = useParams()
 
     useEffect(() => {
-        axios.get(`http://localhost:8000/api/getAllLeaguesForUser`, {withCredentials: true})
+        axios.get(`https://backend-mn36itr6dq-uc.a.run.app/api/getAllLeaguesForUser`, {withCredentials: true})
             .then((response) => {
                 setLeagues(response.data);
                 //console.log(response);
@@ -29,7 +29,7 @@ const MyLeaguesPage = (props) => {
     }, []);
 
     const test = () => {
-        axios.get('http://localhost:8000/api/getAllTeamsForUser')
+        axios.get('https://backend-mn36itr6dq-uc.a.run.app/api/getAllTeamsForUser')
             .then((response) => {
                 console.log('User: ' + response);
             })
@@ -40,7 +40,7 @@ const MyLeaguesPage = (props) => {
 
 
     const createLeague = (newLeagueData) => {
-        axios.post('http://localhost:8000/api/createFantasyLeague', newLeagueData)
+        axios.post('https://backend-mn36itr6dq-uc.a.run.app/api/createFantasyLeague', newLeagueData)
             .then((response) => {
                 setLeagues([...leagues, response.data]);
                 setShowAddLeagueForm(false);
@@ -54,8 +54,8 @@ const MyLeaguesPage = (props) => {
     
     const leaveLeague = (id, event) => {
         event.preventDefault();
-        //axios.delete(`http://localhost:8000/api/deleteFantasyLeague/${id}`)
-        axios.post(`http://localhost:8000/api/removeTeamFromLeague/${id}`, null, { withCredentials: true })
+        //axios.delete(`https://backend-mn36itr6dq-uc.a.run.app/api/deleteFantasyLeague/${id}`)
+        axios.post(`https://backend-mn36itr6dq-uc.a.run.app/api/removeTeamFromLeague/${id}`, null, { withCredentials: true })
             .then((response) => {
                 //setLeagues(response.data);
                 const filteredLeagues = leagues.filter(league => league._id !== id);

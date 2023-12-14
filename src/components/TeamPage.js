@@ -66,7 +66,7 @@ const TeamPage = (props) => { // props can be an array of player objects that be
       // Only update if the new team name is not empty
       // You can use axios.post or your preferred method to make the API call
       // Example:
-      axios.post('http://localhost:8000/api/updateTeamName', { teamId: id, newTeamName })
+      axios.post('https://backend-mn36itr6dq-uc.a.run.app/api/updateTeamName', { teamId: id, newTeamName })
         .then((response) => {
           setTeamName(response.data.teamName);
         })
@@ -80,7 +80,7 @@ const TeamPage = (props) => { // props can be an array of player objects that be
   }
   
   useEffect(() => {
-    axios.get(`http://localhost:8000/api/getFantasyTeamById/${id}`).then((response) => {
+    axios.get(`https://backend-mn36itr6dq-uc.a.run.app/api/getFantasyTeamById/${id}`).then((response) => {
       //console.log(response.data.players);
       setTeamPlayers([...response.data.players]);
       setTeamName([response.data.teamName]);
@@ -90,7 +90,7 @@ const TeamPage = (props) => { // props can be an array of player objects that be
 
 
   useEffect(() => {
-    axios.get(`http://localhost:8000/api/getTeamProjectedPoints/${id}`)
+    axios.get(`https://backend-mn36itr6dq-uc.a.run.app/api/getTeamProjectedPoints/${id}`)
       .then((response) => {
         setTeamProjectedPoints(response.data);
       })
@@ -159,10 +159,10 @@ const TeamPage = (props) => { // props can be an array of player objects that be
         };
 
         try {
-            await axios.post('http://localhost:8000/api/addPlayerToTeam', body);
+            await axios.post('https://backend-mn36itr6dq-uc.a.run.app/api/addPlayerToTeam', body);
             setTeamPlayers(prevPlayers => [...prevPlayers, player]);
 
-            const response = await axios.get(`http://localhost:8000/api/getFantasyTeamById/${id}`);
+            const response = await axios.get(`https://backend-mn36itr6dq-uc.a.run.app/api/getFantasyTeamById/${id}`);
             setTeamPlayers(response.data.players);
             // Update projected points as well if necessary
         } catch (error) {
@@ -193,8 +193,8 @@ const TeamPage = (props) => { // props can be an array of player objects that be
       "newPlayers": teamPlayers,
     }
 
-    axios.post('http://localhost:8000/api/updateTeamPlayers', body).then(() => {
-      axios.get(`http://localhost:8000/api/getFantasyTeamById/${id}`)
+    axios.post('https://backend-mn36itr6dq-uc.a.run.app/api/updateTeamPlayers', body).then(() => {
+      axios.get(`https://backend-mn36itr6dq-uc.a.run.app/api/getFantasyTeamById/${id}`)
       .then((response) => {
         setTeamPlayers(response.data.players);
       })
@@ -203,7 +203,7 @@ const TeamPage = (props) => { // props can be an array of player objects that be
       }) 
 
 
-    axios.get(`http://localhost:8000/api/getTeamProjectedPoints/${id}`)
+    axios.get(`https://backend-mn36itr6dq-uc.a.run.app/api/getTeamProjectedPoints/${id}`)
       .then((response) => {
         setTeamProjectedPoints(response.data);
       })
@@ -222,7 +222,7 @@ const TeamPage = (props) => { // props can be an array of player objects that be
     };
    
 
-    axios.post('http://localhost:8000/api/removePlayerFromTeam', requestBody)
+    axios.post('https://backend-mn36itr6dq-uc.a.run.app/api/removePlayerFromTeam', requestBody)
       .then((response) => {
         setTeamPlayers(response.data.players);
       })
@@ -230,7 +230,7 @@ const TeamPage = (props) => { // props can be an array of player objects that be
         console.error(error);
       }) 
 
-    axios.get(`http://localhost:8000/api/getTeamProjectedPoints/${id}`)
+    axios.get(`https://backend-mn36itr6dq-uc.a.run.app/api/getTeamProjectedPoints/${id}`)
     .then((response) => {
       setTeamProjectedPoints(response.data);
     })

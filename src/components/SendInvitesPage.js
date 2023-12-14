@@ -11,7 +11,7 @@ const SendInvitesPage = ({ onSendInvite, leagueId }) => {
 
   const handleSearch = async () => {
     try {
-      const response = await axios.get(`http://localhost:8000/api/searchUsers?email=${query}`);
+      const response = await axios.get(`https://backend-mn36itr6dq-uc.a.run.app/api/searchUsers?email=${query}`);
       setResults(response.data);
       setErrorMessage("");
       setSearchClicked(true); // Set searchClicked to true when the search button is clicked
