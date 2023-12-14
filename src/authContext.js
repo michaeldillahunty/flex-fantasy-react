@@ -11,15 +11,27 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     // Fetch the current user when the app initializes
     async function fetchCurrentUser() {
+      // try {
+      //   const response = await axios.get('https://backend-mn36itr6dq-uc.a.run.app/auth/currentUser');
+      //   console.log("Response: " + JSON.stringify(response, null, 2));
+      //   if (response.data) {
+      //     setUser(response.data);
+      //     setIsLoggedIn(true);
+      //   }
+      // } catch (error) {
+      //   console.error("Error fetching current user:", error);
+      // }
       try {
-        const response = await axios.get('https://backend-mn36itr6dq-uc.a.run.app/auth/currentUser', {withCredentials: true});
+        const response = await axios.get('https://backend-mn36itr6dq-uc.a.run.app/auth/currentUser');
+        
         if (response.data) {
-          console.log("fetchCurrentUser (authContext.js): " + response.data);
-          setUser(response.data);
-          setIsLoggedIn(true);
+            setUser(response.data);
+            setIsLoggedIn(true);
+        } else {
+            setIsLoggedIn(false);
         }
       } catch (error) {
-        console.error("Error fetching current user:", error);
+          console.error("Error fetching current user:", error);
       }
     }
 

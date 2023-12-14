@@ -215,7 +215,7 @@ throw error;
     // Service for logging a user in using Google OAuth2.0
     fetchGoogleUserData = async () => {
         try {
-            window.location.href = 'https://backend-mn36itr6dq-uc.a.run.app/auth/google';
+            window.location.href = 'https://backend-mn36itr6dq-uc.a.run.app/auth/google/';
         } catch (e) {
             console.error(e.message);
         }

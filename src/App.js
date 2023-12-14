@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './components/styles/index.css';
-import { Navigate, Routes, Route } from "react-router-dom";
+import { Navigate, Routes, Route, useLocation } from "react-router-dom";
 import Home from "./components/Home";
 import TeamPage from "./components/TeamPage";
 import LoginPage from './components/LoginPage';
@@ -46,16 +46,33 @@ function App() {
     };
 
     useEffect(() => {
-        // Fetch the current user when the app initializes
+        // // Fetch the current user when the app initializes
+        // async function fetchCurrentUser() {
+        //     try {
+        //         const response = await axios.get('https://backend-mn36itr6dq-uc.a.run.app/auth/currentUser');
+        //         // if (response == null) { 
+        //         //     console.error('No user currently logged in')
+        //         // }
+        //         console.log("Fetch Current User (App.js) : " + response.data);
+                
+        //         if (response.data) {
+        //             setUser(response.data);
+        //             setIsLoggedIn(true);
+        //         }
+        //         setIsLoggedIn(false);
+        //     } catch (error) {
+        //         console.error("Error fetching current user:", error);
+        //     }
+        // }
         async function fetchCurrentUser() {
             try {
-                const response = await axios.get('https://backend-mn36itr6dq-uc.a.run.app/auth/currentUser', { withCredentials: true });
-                if (response == null) { console.error('No user currently logged in')}
-                if (!response.data) { console.error("RESPONSE.DATA DOES NOT CONTAIN USER")}
-                console.log("Fetch Current User (App.js) : " + response.data);
-                setUser(response.data);
+                const response = await axios.get('https://backend-mn36itr6dq-uc.a.run.app/auth/currentUser');
+                
                 if (response.data) {
+                    setUser(response.data);
                     setIsLoggedIn(true);
+                } else {
+                    setIsLoggedIn(false);
                 }
             } catch (error) {
                 console.error("Error fetching current user:", error);
@@ -66,6 +83,23 @@ function App() {
 
         fetchCurrentUser();
     }, []);
+
+
+    const location = useLocation();
+    const query = new URLSearchParams(location.search);
+    const sessionData = query.get('session');
+    useEffect(() => {
+        if (sessionData) {
+            // Parse the session data JSON string
+            const session = JSON.parse(decodeURIComponent(sessionData));
+
+            // Check if the session contains user data
+            if (session && session.user) {
+                setUser(session.user);
+                setIsLoggedIn(true);
+            }
+        }
+    }, [sessionData]);
 
     return (
         <div>
